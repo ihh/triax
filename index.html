@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Triax Genetics</title>
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <link rel="stylesheet" href="carder/css/carder.css"></link>
+    <link rel="stylesheet" href="carder/css/plain.css"></link>
+    <script src="carder/js/jquery-3.5.1.min.js"></script>
+    <script src="carder/js/swing.js"></script>
+    <script src="carder/js/carder.js"></script>
+    <script src="carder/js/dealer.js"></script>
+    <script src="js/triax.js"></script>
+  </head>
+  <body>
+    <div id="carder"/>
+    <script>
+      let carder, dealer
+      $(document).ready (() => {
+	carder = new Carder ({ iconPrefix: 'carder/img/' })
+	const config = {
+	  carder,
+	  debug: true,
+	  meterIconPrefix: 'meters/',
+	  localStorageKey: 'triax-v0.1',
+	  meters: [{ name: 'value', max: 100 },
+		   { name: 'tech', max: 100 },
+		   { name: 'evil', max: 100 }],
+	  cards,
+	  status: (gs) => `Value=${gs.value} Tech=${gs.tech} Evil=${gs.evil}`
+	}
+	dealer = new Dealer (config)
+	dealer.dealFirstCard()
+      })
+    </script>
+  </body>
+</html>
